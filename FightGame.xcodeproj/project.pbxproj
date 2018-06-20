@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4F44B09E20D95F7E0073F641 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B09D20D95F7E0073F641 /* main.swift */; };
+		4F44B0A620DA50520073F641 /* Personage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0A520DA50520073F641 /* Personage.swift */; };
+		4F44B0A820DA7D440073F641 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0A720DA7D440073F641 /* Team.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		4F44B09A20D95F7E0073F641 /* FightGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FightGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F44B09D20D95F7E0073F641 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4F44B0A520DA50520073F641 /* Personage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personage.swift; sourceTree = "<group>"; };
+		4F44B0A720DA7D440073F641 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				4F44B09D20D95F7E0073F641 /* main.swift */,
+				4F44B0A520DA50520073F641 /* Personage.swift */,
+				4F44B0A720DA7D440073F641 /* Team.swift */,
 			);
 			path = FightGame;
 			sourceTree = "<group>";
@@ -72,6 +78,7 @@
 				4F44B09620D95F7E0073F641 /* Sources */,
 				4F44B09720D95F7E0073F641 /* Frameworks */,
 				4F44B09820D95F7E0073F641 /* CopyFiles */,
+				4F44B0A420DA50160073F641 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -114,11 +121,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F44B0A420DA50160073F641 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4F44B09620D95F7E0073F641 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F44B0A820DA7D440073F641 /* Team.swift in Sources */,
+				4F44B0A620DA50520073F641 /* Personage.swift in Sources */,
 				4F44B09E20D95F7E0073F641 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

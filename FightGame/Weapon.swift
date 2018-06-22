@@ -13,7 +13,7 @@ import Foundation
 //======================
 
 //the Weapon class define a king and the damage of weapon
-class Weapon {
+struct Weapon {
 
 	//======================
 	// MARK: - Properties

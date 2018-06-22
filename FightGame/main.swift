@@ -65,11 +65,37 @@ func newPersonage(number: Int, forTeam: Int) -> Personage {
 	return newPersonageCreated
 }
 
+// function for make a choice between personages of a team
+func makePersonageChoise(inteam: Team) -> Personage {
+	var personageChoised: Personage?
+	print("\(inteam.playerName), choose the personage who will fight :")
+	for numb in 0...2 {
+		print("\(numb + 1). \(inteam.personages[numb].name), who's a \(inteam.personages[numb].personageKind)")
+	}
+	if let choice = readLine() {
+		switch choice {
+		case "1":
+			personageChoised = inteam.personages[0]
+		case "2":
+			personageChoised = inteam.personages[1]
+		case "3":
+			personageChoised = inteam.personages[2]
+		default:
+			print("I did not understand !")
+		}
+	}
+	return personageChoised!
+}
+
 // function that make a fight between 2 personage
 func makeAFightBetween(_ fighter1: Personage, _ fighter2: Personage) {
 	print("...⚒.....⚒.....⚒....⚒....⚒"
 		+ "\n \(fighter1.name) and \(fighter2.name) are fighting together "
-		+ "...⚒.....⚒.....⚒....⚒....⚒")
+		+ "\n...⚒.....⚒.....⚒....⚒....⚒")
+	fighter1.removeLifePoint(attackPoints: fighter2.weapon.attackPoints)
+	fighter2.removeLifePoint(attackPoints: fighter1.weapon.attackPoints)
+	print("now, \(fighter1.name) have \(fighter1.lifePoints) life points left")
+	print("now, \(fighter2.name) have \(fighter2.lifePoints) life points left")
 }
 
 //======================
@@ -81,48 +107,26 @@ print(".................."
 	+ "\n.................."
 	+ "\nHello everybody,")
 // creation of team 1
+
 var team1 = newTeam(number: 1)
 for personnageNumber in 1...3 {
 	team1.personages.append(newPersonage(number: personnageNumber, forTeam: 1))
 }
+
 // creation of team 2
 var team2 = newTeam(number: 2)
 for personnageNumber in 1...3 {
 	team2.personages.append(newPersonage(number: personnageNumber, forTeam: 2))
 }
-// selection of the fighter for team 1
+
+// the 2 teams are completed
 print("Thank you both, the teams are now ready !!")
-print("\(team1.playerName), chose the personage who will fight :")
-for numb in 0...2 {
-	print("\(numb + 1). \(team1.personages[numb].name), who's a \(team1.personages[numb].personageKind)")
-}
-if let choice = readLine() {
-	switch choice {
-	case "1":
-		fighter1 = team1.personages[0]
-	case "2":
-		fighter1 = team1.personages[1]
-	case "3":
-		fighter1 = team1.personages[2]
-	default:
-		print("I did not understand !")
-	}
-}
+
+// selection of the fighter for team 1
+fighter1 = makePersonageChoise(inteam: team1)
+
 // selection of the fighter for team 2
-print("\(team2.playerName), chose the personage who will fight :")
-for numb in 0...2 {
-	print("\(numb + 1). \(team2.personages[numb].name), who's a \(team2.personages[numb].personageKind)")
-}
-if let choice = readLine() {
-	switch choice {
-	case "1":
-		fighter2 = team2.personages[0]
-	case "2":
-		fighter2 = team2.personages[1]
-	case "3":
-		fighter2 = team2.personages[2]
-	default:
-		print("I did not understand !")
-	}
-}
+fighter2 = makePersonageChoise(inteam: team2)
+
+// we make the fight between the 2 selected fighter
 makeAFightBetween(fighter1!, fighter2!)

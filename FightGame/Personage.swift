@@ -63,4 +63,9 @@ class Personage {
 			lifePoints = 50
 		}
 	}
+
+	// function that remove lifepoints during an attack
+	func removeLifePoint(attackPoints: Int) {
+		lifePoints -= attackPoints
+	}
 }

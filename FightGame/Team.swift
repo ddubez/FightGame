@@ -9,7 +9,10 @@
 import Foundation
 
 struct Team {
+	//======================
 	// MARK: - Properties
+	//======================
+
 	//creation of number property : a Int (the number of the team)
 	var number: Int
 

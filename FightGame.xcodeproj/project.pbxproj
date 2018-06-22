@@ -10,6 +10,12 @@
 		4F44B09E20D95F7E0073F641 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B09D20D95F7E0073F641 /* main.swift */; };
 		4F44B0A620DA50520073F641 /* Personage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0A520DA50520073F641 /* Personage.swift */; };
 		4F44B0A820DA7D440073F641 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0A720DA7D440073F641 /* Team.swift */; };
+		4F44B0AA20DA7FCE0073F641 /* Combatant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0A920DA7FCE0073F641 /* Combatant.swift */; };
+		4F44B0AC20DA91010073F641 /* dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0AB20DA91010073F641 /* dwarf.swift */; };
+		4F44B0AE20DA91150073F641 /* colossus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0AD20DA91150073F641 /* colossus.swift */; };
+		4F44B0B020DA91240073F641 /* magus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0AF20DA91240073F641 /* magus.swift */; };
+		4F44B0B220DA930D0073F641 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0B120DA930D0073F641 /* Weapon.swift */; };
+		4F44B0C220DD25AF0073F641 /* WeaponCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0C120DD25AF0073F641 /* WeaponCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,10 +35,25 @@
 		4F44B09D20D95F7E0073F641 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4F44B0A520DA50520073F641 /* Personage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personage.swift; sourceTree = "<group>"; };
 		4F44B0A720DA7D440073F641 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		4F44B0A920DA7FCE0073F641 /* Combatant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatant.swift; sourceTree = "<group>"; };
+		4F44B0AB20DA91010073F641 /* dwarf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dwarf.swift; sourceTree = "<group>"; };
+		4F44B0AD20DA91150073F641 /* colossus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colossus.swift; sourceTree = "<group>"; };
+		4F44B0AF20DA91240073F641 /* magus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magus.swift; sourceTree = "<group>"; };
+		4F44B0B120DA930D0073F641 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		4F44B0B720DD24E20073F641 /* FightGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FightGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F44B0BB20DD24E20073F641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F44B0C120DD25AF0073F641 /* WeaponCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4F44B09720D95F7E0073F641 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F44B0B420DD24E20073F641 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				4F44B09C20D95F7E0073F641 /* FightGame */,
+				4F44B0B820DD24E20073F641 /* FightGameTests */,
 				4F44B09B20D95F7E0073F641 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				4F44B09A20D95F7E0073F641 /* FightGame */,
+				4F44B0B720DD24E20073F641 /* FightGameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,9 +86,23 @@
 			children = (
 				4F44B09D20D95F7E0073F641 /* main.swift */,
 				4F44B0A520DA50520073F641 /* Personage.swift */,
+				4F44B0B120DA930D0073F641 /* Weapon.swift */,
 				4F44B0A720DA7D440073F641 /* Team.swift */,
+				4F44B0A920DA7FCE0073F641 /* Combatant.swift */,
+				4F44B0AD20DA91150073F641 /* colossus.swift */,
+				4F44B0AB20DA91010073F641 /* dwarf.swift */,
+				4F44B0AF20DA91240073F641 /* magus.swift */,
 			);
 			path = FightGame;
+			sourceTree = "<group>";
+		};
+		4F44B0B820DD24E20073F641 /* FightGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F44B0C120DD25AF0073F641 /* WeaponCase.swift */,
+				4F44B0BB20DD24E20073F641 /* Info.plist */,
+			);
+			path = FightGameTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,6 +126,23 @@
 			productReference = 4F44B09A20D95F7E0073F641 /* FightGame */;
 			productType = "com.apple.product-type.tool";
 		};
+		4F44B0B620DD24E20073F641 /* FightGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F44B0BC20DD24E20073F641 /* Build configuration list for PBXNativeTarget "FightGameTests" */;
+			buildPhases = (
+				4F44B0B320DD24E20073F641 /* Sources */,
+				4F44B0B420DD24E20073F641 /* Frameworks */,
+				4F44B0B520DD24E20073F641 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FightGameTests;
+			productName = FightGameTests;
+			productReference = 4F44B0B720DD24E20073F641 /* FightGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -100,6 +154,9 @@
 				ORGANIZATIONNAME = "David DUBEZ";
 				TargetAttributes = {
 					4F44B09920D95F7E0073F641 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					4F44B0B620DD24E20073F641 = {
 						CreatedOnToolsVersion = 9.4;
 					};
 				};
@@ -117,9 +174,20 @@
 			projectRoot = "";
 			targets = (
 				4F44B09920D95F7E0073F641 /* FightGame */,
+				4F44B0B620DD24E20073F641 /* FightGameTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F44B0B520DD24E20073F641 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		4F44B0A420DA50160073F641 /* ShellScript */ = {
@@ -142,9 +210,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F44B0AE20DA91150073F641 /* colossus.swift in Sources */,
+				4F44B0B220DA930D0073F641 /* Weapon.swift in Sources */,
 				4F44B0A820DA7D440073F641 /* Team.swift in Sources */,
 				4F44B0A620DA50520073F641 /* Personage.swift in Sources */,
+				4F44B0AC20DA91010073F641 /* dwarf.swift in Sources */,
 				4F44B09E20D95F7E0073F641 /* main.swift in Sources */,
+				4F44B0AA20DA7FCE0073F641 /* Combatant.swift in Sources */,
+				4F44B0B020DA91240073F641 /* magus.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F44B0B320DD24E20073F641 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F44B0C220DD25AF0073F641 /* WeaponCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +365,42 @@
 			};
 			name = Release;
 		};
+		4F44B0BD20DD24E20073F641 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = A5M6QHPHN6;
+				INFOPLIST_FILE = FightGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.FightGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		4F44B0BE20DD24E20073F641 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = A5M6QHPHN6;
+				INFOPLIST_FILE = FightGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.FightGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -301,6 +418,15 @@
 			buildConfigurations = (
 				4F44B0A220D95F7E0073F641 /* Debug */,
 				4F44B0A320D95F7E0073F641 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F44B0BC20DD24E20073F641 /* Build configuration list for PBXNativeTarget "FightGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F44B0BD20DD24E20073F641 /* Debug */,
+				4F44B0BE20DD24E20073F641 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -25,9 +25,9 @@ class Personage {
 	// creation of weapon property : a Weapon class (the weapon of a personage)
 	var weapon: Weapon
 
-	// creation of isalive property : a Bool (is the personage is alive or dead)
-	var isalive: Bool {
-		return lifePoints != 0
+	// creation of isdead property : a Bool (is the personage is alive or dead)
+	var isdead: Bool {
+		return lifePoints <= 0
 	}
 
 	// creation of Sort enum : a list of sort of personages
@@ -54,13 +54,13 @@ class Personage {
 	private func setCharacterLifePoints() {
 		switch personageKind {
 		case .colossus:
-			lifePoints = 200
+			lifePoints = 10
 		case .combatant:
-			lifePoints = 100
+			lifePoints = 10
 		case .magus:
-			lifePoints = 80
+			lifePoints = 10
 		case .dwarf:
-			lifePoints = 50
+			lifePoints = 10
 		}
 	}
 

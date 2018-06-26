@@ -22,6 +22,17 @@ struct Team {
 	// creation of playerName property : a string (the name of the team)
 	var playerName: String
 
+	// creation of IsOver property : when all the personage are dead
+	var isOver: Bool {
+		var numberOfDeadPersonages = 0
+		for perso in personages {
+			if perso.isdead {
+				numberOfDeadPersonages += 1
+			}
+		}
+		return numberOfDeadPersonages == personages.count
+	}
+
 	// initialization of properties
 	init(number: Int, personages: [Personage], playerName: String) {
 		self.number = number

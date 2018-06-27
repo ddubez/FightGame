@@ -54,13 +54,13 @@ class Personage {
 	private func setCharacterLifePoints() {
 		switch personageKind {
 		case .colossus:
-			lifePoints = 10
+			lifePoints = 200
 		case .combatant:
-			lifePoints = 10
+			lifePoints = 100
 		case .magus:
-			lifePoints = 10
+			lifePoints = 50
 		case .dwarf:
-			lifePoints = 10
+			lifePoints = 150
 		}
 	}
 

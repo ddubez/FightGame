@@ -14,6 +14,7 @@ import Foundation
 
 var fighter1: Personage?
 var fighter2: Personage?
+var validAnswer = false
 
 //======================
 // MARK: - Functions
@@ -38,6 +39,9 @@ func newPersonage(number: Int, forTeam: Int) -> Personage {
 	print("What's the name of your personage number  \(number) ?")
 	choisedName = readLine()!
 	let newPersonageCreated = Personage(name: choisedName)
+	validAnswer = false
+
+	while validAnswer == false {
 	print("What kind is it ?"
 		+ "\n1. 🤺 A combatant (good warrior) "
 		+ "\n2. 🧙‍♂️ A magus (heal his friends) "
@@ -49,18 +53,23 @@ func newPersonage(number: Int, forTeam: Int) -> Personage {
 		case "1":
 			newPersonageCreated.personageKind = .combatant
 			newPersonageCreated.weapon = sword
+			validAnswer = true
 		case "2":
 			newPersonageCreated.personageKind = .magus
 			newPersonageCreated.weapon = magic
+			validAnswer = true
 		case "3":
 			newPersonageCreated.personageKind = .colossus
 			newPersonageCreated.weapon = dagger
+			validAnswer = true
 		case "4":
 			newPersonageCreated.personageKind = .dwarf
 			newPersonageCreated.weapon = twoHandAx
+			validAnswer = true
 		default:
 			print("I did not understand !")
 		}
+	}
 	}
 	return newPersonageCreated
 }
@@ -69,6 +78,8 @@ func newPersonage(number: Int, forTeam: Int) -> Personage {
 func makePersonageChoise(inteam: Team) -> Personage {
 	var personageChoised: Personage?
 	print("\(inteam.playerName), choose the personage who will fight :")
+	validAnswer = false
+	while validAnswer == false {
 	for numb in 0...2 {
 		print("\(numb + 1). \(inteam.personages[numb].name), who's a \(inteam.personages[numb].personageKind) and have \(inteam.personages[numb].lifePoints) lifepoints left")
 	}
@@ -76,13 +87,17 @@ func makePersonageChoise(inteam: Team) -> Personage {
 		switch choice {
 		case "1":
 			personageChoised = inteam.personages[0]
+			validAnswer = true
 		case "2":
 			personageChoised = inteam.personages[1]
+			validAnswer = true
 		case "3":
 			personageChoised = inteam.personages[2]
+			validAnswer = true
 		default:
 			print("I did not understand !")
 		}
+	}
 	}
 	return personageChoised!
 }

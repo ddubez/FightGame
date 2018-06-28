@@ -36,7 +36,7 @@ struct Weapon {
 // MARK: - création of the avalaible weapons
 //======================
 
-	let dagger = Weapon(kind: "dagger", attackPoints: 10)
-	let sword = Weapon(kind: "sword", attackPoints: 25)
+	let dagger = Weapon(kind: "dagger", attackPoints: 5)
+	let sword = Weapon(kind: "sword", attackPoints: 10)
 	let twoHandAx = Weapon(kind: "twoHandAx", attackPoints: 50)
 	let magic = Weapon(kind: "magic", attackPoints: 20)

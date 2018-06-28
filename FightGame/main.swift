@@ -75,13 +75,13 @@ func newPersonage(number: Int, forTeam: Int) -> Personage {
 }
 
 // function for make a choice between personages of a team
-func makePersonageChoise(inteam: Team) -> Personage {
+func choosePersonage(inteam: Team) -> Personage {
 	var personageChoised: Personage?
-	print("\(inteam.playerName), choose the personage who will fight :")
 	validAnswer = false
 	while validAnswer == false {
 	for numb in 0...2 {
-		print("\(numb + 1). \(inteam.personages[numb].name), who's a \(inteam.personages[numb].personageKind) and have \(inteam.personages[numb].lifePoints) lifepoints left")
+		print("\(numb + 1). \(inteam.personages[numb].name), who's a \(inteam.personages[numb].personageKind) "
+			+ "and have \(inteam.personages[numb].lifePoints) lifepoints left")
 	}
 	if let choice = readLine() {
 		switch choice {
@@ -103,22 +103,21 @@ func makePersonageChoise(inteam: Team) -> Personage {
 }
 
 // function that make a fight between 2 personage
-func makeAFightBetween(_ fighter1: Personage, _ fighter2: Personage) {
+func makeAnAttackBy(_ fighter1: Personage, on fighter2: Personage) {
 	print("...⚒.....⚒.....⚒....⚒....⚒"
 		+ "\n \(fighter1.name) and \(fighter2.name) are fighting together "
 		+ "\n...⚒.....⚒.....⚒....⚒....⚒")
-	fighter1.removeLifePoint(attackPoints: fighter2.weapon.attackPoints)
 	fighter2.removeLifePoint(attackPoints: fighter1.weapon.attackPoints)
 
 	if fighter1.isdead {
 		print("unfortunately, \(fighter1.name) is dead")
-	}	else {
+	} else {
 		print("now, \(fighter1.name) have \(fighter1.lifePoints) life points left")
 	}
-	
+
 	if fighter2.isdead {
 		print("unfortunately, \(fighter2.name) is dead")
-	}	else {
+	} else {
 		print("now, \(fighter2.name) have \(fighter2.lifePoints) life points left")
 	}
 }
@@ -131,8 +130,8 @@ print(".................."
 	+ "\n.................."
 	+ "\n.................."
 	+ "\nHello everybody,")
-// creation of team 1
 
+// creation of team 1
 var team1 = newTeam(number: 1)
 for personnageNumber in 1...3 {
 	team1.personages.append(newPersonage(number: personnageNumber, forTeam: 1))
@@ -148,14 +147,29 @@ for personnageNumber in 1...3 {
 print("Thank you both, the teams are now ready !!")
 
 while !team1.isOver && !team2.isOver {
-// selection of the fighter for team 1
-fighter1 = makePersonageChoise(inteam: team1)
+	// Attack of Team 1
+	// selection of the fighter for team 1
+	print("\(team1.playerName), choose the personage who will fight :")
+	fighter1 = choosePersonage(inteam: team1)
 
-// selection of the fighter for team 2
-fighter2 = makePersonageChoise(inteam: team2)
+	// selection of personage in team 2, attacked by team 1
+	print("And now, choose the personage that you want to attack :")
+	fighter2 = choosePersonage(inteam: team2)
 
-// we make the fight between the 2 selected fighter
-makeAFightBetween(fighter1!, fighter2!)
+	// we make the fight between the 2 selected fighter
+	makeAnAttackBy(fighter1!, on: fighter2!)
+
+	// Attack of Team 2
+	// selection of the fighter for team 2
+	print("\(team2.playerName), choose the personage who will fight :")
+	fighter1 = choosePersonage(inteam: team2)
+
+	// selection of personage in team 1, attacked by team 2
+	print("And now, choose the personage that you want to attack :")
+	fighter2 = choosePersonage(inteam: team1)
+
+	// we make the fight between the 2 selected fighter
+	makeAnAttackBy(fighter1!, on: fighter2!)
 }
 
 print("the game is now over because all the personages of one team are dead !!!")

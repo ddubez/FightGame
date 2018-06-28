@@ -25,10 +25,8 @@ struct Team {
 	// creation of IsOver property : when all the personage are dead
 	var isOver: Bool {
 		var numberOfDeadPersonages = 0
-		for perso in personages {
-			if perso.isdead {
+		for perso in personages where perso.isdead {
 				numberOfDeadPersonages += 1
-			}
 		}
 		return numberOfDeadPersonages == personages.count
 	}

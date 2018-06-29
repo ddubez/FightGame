@@ -57,10 +57,10 @@ func createNewPersonage(number: Int, inGame: Game) -> Personage {
 	validAnswer = false
 	while validAnswer == false {
 	print("What kind is it ?"
-		+ "\n1. 🤺 A combatant (good warrior) "
-		+ "\n2. 🧙‍♂️ A magus (heal his friends) "
-		+ "\n3. 🏋️‍♀️ A colossus (very tough, but he will not hurt very much !) "
-		+ "\n4. ⛏ A dwarf (his ax will deal you a lot of damage, but he does not have a lot of health) "
+		+ "\n1. \(Combatant.description) "
+		+ "\n2. \(Magus.description) "
+		+ "\n3. \(Colossus.description) "
+		+ "\n4. \(Dwarf.description) "
 	)
 	if let choice = readLine() {
 		switch choice {

@@ -40,7 +40,6 @@ class Personage {
 		self.name = name
 		self.personageKind = kind
 		self.weapon = weapon
-		setCharacterLifePoints()
 	}
 	convenience init(name: String) {
 		self.init(name: name, kind: .combatant, weapon: sword)
@@ -49,20 +48,6 @@ class Personage {
 	//======================
 	// MARK: - Methods
 	//======================
-
-	// private method for set lifepoints of a Personage depending on his Kind
-	private func setCharacterLifePoints() {
-		switch personageKind {
-		case .colossus:
-			lifePoints = 200
-		case .combatant:
-			lifePoints = 100
-		case .magus:
-			lifePoints = 50
-		case .dwarf:
-			lifePoints = 150
-		}
-	}
 
 	// function that remove lifepoints during an attack
 	func removeLifePoint(attackPoints: Int) {

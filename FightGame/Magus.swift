@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Magus: Personage {
+	override init(name: String, kind: PersonageKind, weapon: Weapon) {
+		super.init(name: name, kind: .magus, weapon: magic)
+	}
+}

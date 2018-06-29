@@ -9,5 +9,7 @@
 import Foundation
 
 class Combatant: Personage {
-
+	override init(name: String, kind: PersonageKind, weapon: Weapon) {
+		super.init(name: name, kind: .combatant, weapon: sword)
+	}
 }

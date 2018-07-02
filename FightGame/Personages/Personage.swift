@@ -42,7 +42,7 @@ class Personage {
 		self.weapon = weapon
 	}
 	convenience init(name: String) {
-		self.init(name: name, kind: .combatant, weapon: sword)
+		self.init(name: name, kind: .combatant, weapon: WeaponFactory.sword)
 	}
 
 	//======================
@@ -50,7 +50,12 @@ class Personage {
 	//======================
 
 	// function that remove lifepoints during an attack
-	func removeLifePoint(attackPoints: Int) {
-		lifePoints -= attackPoints
+	func isAttackedBy(_ personage: Personage) {
+		lifePoints -= personage.weapon.attackPoints
+	}
+
+	//function that add lifepoints during a magus care
+	func isHealedBy(_ personage: Personage) {
+		lifePoints += personage.weapon.attackPoints
 	}
 }

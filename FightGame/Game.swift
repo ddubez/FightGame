@@ -17,7 +17,7 @@ class Game {
 	var team2: Team
 
 	// creation of numberOfTurn property : a Int (the number of turns of the game)
-	var numberOfTurn = 0
+	var numberOfTurn = 1
 
 	// creation of isOver property : when the game is over
 	var isOver: Bool {

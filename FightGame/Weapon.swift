@@ -9,10 +9,10 @@
 import Foundation
 
 //======================
-// MARK: - class
+// MARK: - Structure
 //======================
 
-//the Weapon class define a king and the damage of weapon
+//the Weapon class define a kind and the damage of weapon
 struct Weapon {
 
 	//======================
@@ -36,7 +36,9 @@ struct Weapon {
 // MARK: - création of the avalaible weapons
 //======================
 
-	let dagger = Weapon(kind: "dagger", attackPoints: 5)
-	let sword = Weapon(kind: "sword", attackPoints: 10)
-	let twoHandAx = Weapon(kind: "twoHandAx", attackPoints: 50)
-	let magic = Weapon(kind: "magic", attackPoints: 20)
+struct WeaponFactory {
+	static let dagger = Weapon(kind: "dagger", attackPoints: 50)
+	static let sword = Weapon(kind: "sword", attackPoints: 100)
+	static let twoHandAx = Weapon(kind: "twoHandAx", attackPoints: 200)
+	static let magic = Weapon(kind: "magic", attackPoints: 50)
+}

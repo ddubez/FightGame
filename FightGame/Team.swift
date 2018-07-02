@@ -8,6 +8,7 @@
 
 import Foundation
 
+// the structure Team define a list of personage in a team
 struct Team {
 	//======================
 	// MARK: - Properties

@@ -126,6 +126,11 @@ func performAnActionBy(_ teamA: Team, on teamB: Team ) {
 	print("\(teamA.playerName), choose the personage who will perform an action :")
 	fighter1 = choosePersonage(inteam: teamA)
 
+	let newWeaponFound = isBoxAppear()
+	if newWeaponFound != nil {
+		changeWeapon(of: fighter1, with: newWeaponFound!)
+	}
+
 	if fighter1.personageKind == .magus {
 		// selection and heal personage in team A
 		print("And now, choose the personage that you want to heal :")
@@ -155,6 +160,58 @@ func performAnActionBy(_ teamA: Team, on teamB: Team ) {
 			print("""
 				now, \(fighter2.name) have \(fighter2.lifePoints) life points left
 				""")
+		}
+	}
+}
+
+// function that make appear a box by chance
+func isBoxAppear() -> Weapon? {
+	var weaponInBox: Weapon?
+	weaponInBox = nil
+	if arc4random_uniform(10) > 5 {
+		print("""
+			🎁
+			you are luky, a box appears in front of you !
+			🎁
+			""")
+		let randomIndex = Int(arc4random_uniform(UInt32(WeaponFactory.list.count)))
+		weaponInBox = WeaponFactory.list[randomIndex]
+		print("""
+			You found a \(weaponInBox!.kind) !!
+			""")
+	}
+	return weaponInBox
+}
+
+// function taht make a personge change or not his weapon
+func changeWeapon(of fighter: Personage, with weapon: Weapon) {
+	switch fighter.sort {
+	case .fighter where weapon.action == .heal:
+		print("Sorry, but a \(fighter.personageKind) can't have a heal weapon ")
+	case .healer where weapon.action == .attack:
+		print("Sorry, but a \(fighter.personageKind) can't have a attack weapon ")
+	default:
+		print("""
+			Now, \(fighter.name) has a \(fighter.weapon.kind) for weapon
+			witch have \(fighter.weapon.attackPoints) attack point.
+			Do you want to change it with \(weapon.kind) witch have \(weapon.attackPoints) attack points ?
+			(y / n)
+			""")
+		validAnswer = false
+		while validAnswer == false {
+			if let choice = readLine() {
+				switch choice {
+				case "y":
+					fighter.weapon = weapon
+					print("ok, \(fighter.name) has now a \(fighter.weapon.kind) for weapon")
+					validAnswer = true
+				case "n":
+					print("ok")
+					validAnswer = true
+				default:
+					print("I did not understand !")
+				}
+			}
 		}
 	}
 }

@@ -16,13 +16,18 @@ class Personage {
 	// creation of name property : a String (the name of the Personage)
 	var name: String
 
-	// creation of sort property : a Sort enum (the sort of the personage : "combatant", "magus" ...)
+	// creation of kind property : a PersonageKind enum (the kind of the personage : "combatant", "magus" ...)
 	var personageKind: PersonageKind
+
+	// creation of PersonageKind enum : a list of kind of personages
+	enum PersonageKind {
+		case combatant, magus, colossus, dwarf
+	}
 
 	// creation of lifePoints property : a Int (the number of point of life for e personage)
 	var lifePoints = 0
 
-	// creation of weapon property : a Weapon class (the weapon of a personage)
+	// creation of weapon property : a Weapon strcture (the weapon of a personage)
 	var weapon: Weapon
 
 	// creation of isdead property : a Bool (is the personage is alive or dead)
@@ -30,9 +35,18 @@ class Personage {
 		return lifePoints <= 0
 	}
 
-	// creation of Sort enum : a list of sort of personages
-	enum PersonageKind {
-		case combatant, magus, colossus, dwarf
+	// creation of a get property : sort : a Sort Enum for the sort of the personage
+	var sort: Sort {
+		if personageKind == .magus {
+			return Sort.healer
+		} else {
+			return Sort.fighter
+		}
+	}
+
+	// création of sort enum
+	enum Sort {
+		case fighter, healer
 	}
 
 	// initialization of properties

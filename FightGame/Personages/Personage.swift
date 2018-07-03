@@ -72,4 +72,10 @@ class Personage {
 	func isHealedBy(_ personage: Personage) {
 		lifePoints += personage.weapon.attackPoints
 	}
+
+	// function that make a description of a personage
+	func makeDescription() -> String {
+		return "\(name), who's a \(personageKind) with \(lifePoints) lifepoints left,"
+		+ " and a \(weapon.kind) with \(weapon.attackPoints) attack points "
+	}
 }

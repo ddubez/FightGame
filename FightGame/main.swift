@@ -34,22 +34,8 @@ func createNewTeam(number: Int) -> Team {
 
 // function that create a personage
 func createNewPersonage(number: Int, inGame: Game) -> Personage {
-	var choosedName = ""
-
-	// loop that control if the name of the personage doesn't already exist
-	validAnswer = false
-	while validAnswer == false {
-		print("What's the name of your personage number  \(number) ?")
-		if let choice = readLine() {
-			if inGame.listOfNames.contains(choice) {
-				print("Sorry but the name already exist !")
-			} else {
-				choosedName = choice
-				validAnswer = true
-			}
-		}
-	}
-
+	print("What's the name of your personage number  \(number) ?")
+	let choosedName = chooseAName(in: inGame)
 	var newPersonageCreated: Personage!
 
 	// loop that make a choice of personage and control if the choice is correct
@@ -86,35 +72,50 @@ func createNewPersonage(number: Int, inGame: Game) -> Personage {
 	return newPersonageCreated
 }
 
+// function for choose a name and control if the name of the personage doesn't already exist
+func chooseAName(in game: Game) -> String {
+	var validName = ""
+	validAnswer = false
+	while validAnswer == false {
+		if let choice = readLine() {
+			if game.listOfNames.contains(choice) {
+				print("Sorry but the name already exist !")
+			} else {
+				validName = choice
+				validAnswer = true
+			}
+		}
+	}
+	return validName
+}
+
 // function for make a choice between personages of a team
 func choosePersonage(inteam: Team) -> Personage {
 	var personageChoised: Personage?
 	validAnswer = false
 	while validAnswer == false {
-	var numberOfPossiblesChoices = 0
-	var indexOfPossiblesChoices = [Int]()
-	for numb in 0...2 where !inteam.personages[numb].isdead {
-		print("\(numberOfPossiblesChoices + 1). \(inteam.personages[numb].name),"
-			+ "who's a \(inteam.personages[numb].personageKind) "
-			+ "and have \(inteam.personages[numb].lifePoints) lifepoints left")
-		numberOfPossiblesChoices += 1
-		indexOfPossiblesChoices.append(numb)
+		var numberOfPossiblesChoices = 0
+		var indexOfPossiblesChoices = [Int]()
+		for numb in 0...2 where !inteam.personages[numb].isdead {
+			print("\(numberOfPossiblesChoices + 1). " + inteam.personages[numb].makeDescription())
+			numberOfPossiblesChoices += 1
+			indexOfPossiblesChoices.append(numb)
+			}
+		if let choice = readLine() {
+			switch choice {
+			case "1":
+				personageChoised = inteam.personages[indexOfPossiblesChoices[0]]
+				validAnswer = true
+			case "2" where numberOfPossiblesChoices > 1:
+				personageChoised = inteam.personages[indexOfPossiblesChoices[1]]
+				validAnswer = true
+			case "3" where numberOfPossiblesChoices > 2:
+				personageChoised = inteam.personages[indexOfPossiblesChoices[2]]
+				validAnswer = true
+			default:
+				print("I did not understand !")
+			}
 		}
-	if let choice = readLine() {
-		switch choice {
-		case "1":
-			personageChoised = inteam.personages[indexOfPossiblesChoices[0]]
-			validAnswer = true
-		case "2" where numberOfPossiblesChoices > 1:
-			personageChoised = inteam.personages[indexOfPossiblesChoices[1]]
-			validAnswer = true
-		case "3" where numberOfPossiblesChoices > 2:
-			personageChoised = inteam.personages[indexOfPossiblesChoices[2]]
-			validAnswer = true
-		default:
-			print("I did not understand !")
-		}
-	}
 	}
 	return personageChoised!
 }

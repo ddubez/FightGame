@@ -93,7 +93,7 @@ func chooseAName(in game: Game) -> String {
 func choosePersonage(inteam: Team) -> Personage {
 	var personageChoised: Personage?
 	validAnswer = false
-	while validAnswer == false {
+	repeat {
 		var numberOfPossiblesChoices = 0
 		var indexOfPossiblesChoices = [Int]()
 		for numb in 0...2 where !inteam.personages[numb].isdead {
@@ -116,7 +116,8 @@ func choosePersonage(inteam: Team) -> Personage {
 				print("I did not understand !")
 			}
 		}
-	}
+	} while validAnswer == false
+	
 	return personageChoised!
 }
 
@@ -167,8 +168,7 @@ func performAnActionBy(_ teamA: Team, on teamB: Team ) {
 
 // function that make appear a box by chance
 func isBoxAppear() -> Weapon? {
-	var weaponInBox: Weapon?
-	weaponInBox = nil
+	var weaponInBox: Weapon? = nil
 	if arc4random_uniform(10) > 5 {
 		print("""
 			🎁
@@ -219,7 +219,10 @@ func changeWeapon(of fighter: Personage, with weapon: Weapon) {
 
 //======================
 // MARK: - Activities
-//======================
+//=====================
+
+//TODO: sdfqdsfqsdfqs
+// FIXME: ajouter
 
 print("""
 	..................
@@ -250,7 +253,7 @@ print("Thank you both, the teams are now ready !!")
 while !game.isOver {
 
 	if game.numberOfTurn % 2 != 0 {
-		performAnActionBy(game.team1, on: game.team2)
+		performAnActionBy(game.ne peuteam1, on: game.team2)
 	} else {
 		performAnActionBy(game.team2, on: game.team1)
 	}

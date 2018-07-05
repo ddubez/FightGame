@@ -84,14 +84,10 @@
 		4F44B09C20D95F7E0073F641 /* FightGame */ = {
 			isa = PBXGroup;
 			children = (
+				4F64CCD720EE660D00811681 /* Personage */,
 				4F44B09D20D95F7E0073F641 /* main.swift */,
-				4F44B0A520DA50520073F641 /* Personage.swift */,
 				4F44B0B120DA930D0073F641 /* Weapon.swift */,
 				4F44B0A720DA7D440073F641 /* Team.swift */,
-				4F44B0A920DA7FCE0073F641 /* Combatant.swift */,
-				4F44B0AD20DA91150073F641 /* Colossus.swift */,
-				4F44B0AB20DA91010073F641 /* Dwarf.swift */,
-				4F44B0AF20DA91240073F641 /* Magus.swift */,
 			);
 			path = FightGame;
 			sourceTree = "<group>";
@@ -103,6 +99,18 @@
 				4F44B0BB20DD24E20073F641 /* Info.plist */,
 			);
 			path = FightGameTests;
+			sourceTree = "<group>";
+		};
+		4F64CCD720EE660D00811681 /* Personage */ = {
+			isa = PBXGroup;
+			children = (
+				4F44B0A520DA50520073F641 /* Personage.swift */,
+				4F44B0A920DA7FCE0073F641 /* Combatant.swift */,
+				4F44B0AD20DA91150073F641 /* Colossus.swift */,
+				4F44B0AB20DA91010073F641 /* Dwarf.swift */,
+				4F44B0AF20DA91240073F641 /* Magus.swift */,
+			);
+			path = Personage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

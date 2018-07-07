@@ -9,10 +9,10 @@
 import Foundation
 
 //======================
-// MARK: - class
+// MARK: - Structure
 //======================
 
-//the Weapon class define a king and the damage of weapon
+//the Weapon class define a kind and the damage of weapon
 struct Weapon {
 
 	//======================
@@ -25,10 +25,19 @@ struct Weapon {
 	// creation of attackpoints property : a Int (the number of lifepoint that the persongae will lost with the weapon)
 	var attackPoints: Int
 
+	// creation of action property : a WeaponAction Enum (the action of the weapon)
+	var action: WeaponAction
+
+	// creation of WeaponAction enum
+	enum WeaponAction {
+		case attack, heal
+	}
+
 	// initialization of properties
-	init(kind: String, attackPoints: Int ) {
+	init(kind: String, attackPoints: Int, action: WeaponAction ) {
 		self.kind = kind
 		self.attackPoints = attackPoints
+		self.action = action
 	}
 }
 
@@ -36,7 +45,12 @@ struct Weapon {
 // MARK: - création of the avalaible weapons
 //======================
 
-	let dagger = Weapon(kind: "dagger", attackPoints: 5)
-	let sword = Weapon(kind: "sword", attackPoints: 10)
-	let twoHandAx = Weapon(kind: "twoHandAx", attackPoints: 50)
-	let magic = Weapon(kind: "magic", attackPoints: 20)
+struct WeaponFactory {
+	static let dagger = Weapon(kind: "dagger", attackPoints: 50, action: .attack)
+	static let sword = Weapon(kind: "sword", attackPoints: 100, action: .attack)
+	static let twoHandAx = Weapon(kind: "twoHandAx", attackPoints: 200, action: .attack)
+	static let magic = Weapon(kind: "magic", attackPoints: 50, action: .heal)
+
+	// création of an array of weaponFactory for random choose in the box
+	static let list = [WeaponFactory.dagger, WeaponFactory.sword, WeaponFactory.twoHandAx, WeaponFactory.magic]
+}

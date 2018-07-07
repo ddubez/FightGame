@@ -75,4 +75,21 @@ class Game {
 	func endTurn() {
 		numberOfTurn += 1
 	}
+
+	// function for choose a name and control if the name of the personage doesn't already exist
+	func chooseAName() -> String {
+		var validName = ""
+		var validAnswer = false
+		repeat {
+			if let choice = readLine() {
+				if listOfNames.contains(choice) {
+					print("Sorry but the name already exist !")
+				} else {
+					validName = choice
+					validAnswer = true
+				}
+			}
+		} while validAnswer == false
+		return validName
+	}
 }

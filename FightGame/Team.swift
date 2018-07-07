@@ -38,4 +38,105 @@ struct Team {
 		self.personages = personages
 		self.playerName = playerName
 	}
+
+	//======================
+	// MARK: - Methods
+	//======================
+
+	// function for make a choice between personages of a team
+
+	private func chooseAPersonage() -> Personage {
+		var personageChoised: Personage?
+		var validAnswer = false
+		repeat {
+			var numberOfPossiblesChoices = 0
+			var indexOfPossiblesChoices = [Int]()
+			for numb in 0...2 where !personages[numb].isdead {
+				print("\(numberOfPossiblesChoices + 1). " + personages[numb].makeDescription())
+				numberOfPossiblesChoices += 1
+				indexOfPossiblesChoices.append(numb)
+			}
+			if let choice = readLine() {
+				switch choice {
+				case "1":
+					personageChoised = personages[indexOfPossiblesChoices[0]]
+					validAnswer = true
+				case "2" where numberOfPossiblesChoices > 1:
+					personageChoised = personages[indexOfPossiblesChoices[1]]
+					validAnswer = true
+				case "3" where numberOfPossiblesChoices > 2:
+					personageChoised = personages[indexOfPossiblesChoices[2]]
+					validAnswer = true
+				default:
+					print("I did not understand !")
+				}
+			}
+		} while validAnswer == false
+
+		return personageChoised!
+	}
+
+	// function that perform an action by a team
+	func performAnActionOn(_ otherTeam: Team ) {
+
+		// selection of the fighter for team
+		print("\(playerName), choose the personage who will perform an action :")
+		let fighter1 = chooseAPersonage()
+
+		let newWeaponFound = isBoxAppear()
+		if newWeaponFound != nil {
+			fighter1.changeWeapon(with: newWeaponFound!)
+		}
+
+		if fighter1.personageKind == .magus {
+			// selection and heal personage in team A
+			print("And now, choose the personage that you want to heal :")
+			let fighter2 = chooseAPersonage()
+			fighter2.isHealedBy(fighter1)
+			print("""
+				💉      💊
+				Good job, \(fighter2.name) has now \(fighter2.lifePoints) lifepoints left !
+
+				""")
+		} else {
+			// selectection and attack pessonage in team B
+			print("And now, choose the personage that you want to attack :")
+			let fighter2 = otherTeam.chooseAPersonage()
+			fighter2.isAttackedBy(fighter1)
+			print("""
+				⚔️      🛡
+				\(fighter1.name) is attacking \(fighter2.name) !!
+				""")
+
+			if fighter2.isdead {
+				print("""
+					unfortunately, \(fighter2.name) is dead
+
+					""")
+			} else {
+				print("""
+					now, \(fighter2.name) have \(fighter2.lifePoints) life points left
+					""")
+			}
+		}
+	}
+
+	// function that make appear a box by chance
+	private func isBoxAppear() -> Weapon? {
+		var weaponInBox: Weapon? = nil
+		if arc4random_uniform(10) > 5 {
+			print("""
+			🎁
+			you are luky, a box appears in front of you !
+			🎁
+			""")
+			let randomIndex = Int(arc4random_uniform(UInt32(WeaponFactory.list.count)))
+			weaponInBox = WeaponFactory.list[randomIndex]
+			print("""
+				You found a \(weaponInBox!.kind) !!
+				""")
+		}
+		return weaponInBox
+	}
+
 }

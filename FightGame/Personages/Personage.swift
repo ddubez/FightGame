@@ -78,4 +78,37 @@ class Personage {
 		return "\(name), who's a \(personageKind) with \(lifePoints) lifepoints left,"
 		+ " and a \(weapon.kind) with \(weapon.attackPoints) attack points "
 	}
+
+	// function taht make a personge change or not his weapon
+	func changeWeapon(with newWeapon: Weapon) {
+		switch sort {
+		case .fighter where newWeapon.action == .heal:
+			print("Sorry, but a \(personageKind) can't have a heal weapon ")
+		case .healer where newWeapon.action == .attack:
+			print("Sorry, but a \(personageKind) can't have a attack weapon ")
+		default:
+			print("""
+				Now, \(name) has a \(weapon.kind) for weapon
+				witch have \(weapon.attackPoints) attack point.
+				Do you want to change it with \(newWeapon.kind) witch have \(newWeapon.attackPoints) attack points ?
+				(y / n)
+				""")
+			var validAnswer = false
+			repeat {
+				if let choice = readLine() {
+					switch choice {
+					case "y":
+						weapon = newWeapon
+						print("ok, \(name) has now a \(weapon.kind) for weapon")
+						validAnswer = true
+					case "n":
+						print("ok")
+						validAnswer = true
+					default:
+						print("I did not understand !")
+					}
+				}
+			} while validAnswer == false
+		}
+	}
 }

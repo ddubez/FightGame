@@ -253,7 +253,7 @@ print("Thank you both, the teams are now ready !!")
 while !game.isOver {
 
 	if game.numberOfTurn % 2 != 0 {
-		performAnActionBy(game.ne peuteam1, on: game.team2)
+		performAnActionBy(game.team1, on: game.team2)
 	} else {
 		performAnActionBy(game.team2, on: game.team1)
 	}

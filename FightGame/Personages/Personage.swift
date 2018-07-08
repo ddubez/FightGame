@@ -27,8 +27,11 @@ class Personage {
 	// creation of lifePoints property : a Int (the number of point of life for e personage)
 	var lifePoints = 0
 
-	// creation of weapon property : a Weapon strcture (the weapon of a personage)
+	// creation of weapon property : a Weapon structure (the weapon of a personage)
 	var weapon: Weapon
+
+	// creation of inGame : the game where is the personage
+	var inGame: Game
 
 	// creation of isdead property : a Bool (is the personage is alive or dead)
 	var isdead: Bool {
@@ -49,14 +52,18 @@ class Personage {
 		case fighter, healer
 	}
 
+	// création of SuperPower property : a super power that points increments at each turn of the game
+	var superPower: SuperPower?
+
 	// initialization of properties
-	init(name: String, kind: PersonageKind, weapon: Weapon) {
+	init(name: String, kind: PersonageKind, weapon: Weapon, inGame: Game) {
 		self.name = name
 		self.personageKind = kind
 		self.weapon = weapon
+		self.inGame = inGame
 	}
-	convenience init(name: String) {
-		self.init(name: name, kind: .combatant, weapon: WeaponFactory.sword)
+	convenience init(name: String, inGame: Game) {
+		self.init(name: name, kind: .combatant, weapon: WeaponFactory.sword, inGame: inGame)
 	}
 
 	//======================
@@ -75,8 +82,14 @@ class Personage {
 
 	// function that make a description of a personage
 	func makeDescription() -> String {
-		return "\(name), who's a \(personageKind) with \(lifePoints) lifepoints left,"
-		+ " and a \(weapon.kind) with \(weapon.attackPoints) attack points "
+		var powerDescription = ""
+		if superPower != nil {
+			powerDescription = " and he still had his super power : \n      \(superPower!.kind) "
+			+ "which have \(superPower!.attackPoints) attack points "
+			+ "but will cause a damage of \(superPower!.damagePoints) life points to him"
+		}
+		return "\(name): He's a \(personageKind) with \(lifePoints) lifepoints left,"
+		+ " he's got a \(weapon.kind) with \(weapon.attackPoints) attack points " + powerDescription
 	}
 
 	// function taht make a personge change or not his weapon

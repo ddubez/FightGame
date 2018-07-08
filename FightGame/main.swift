@@ -50,16 +50,16 @@ func createNewPersonage(number: Int, inGame: Game) -> Personage {
 		if let choice = readLine() {
 			switch choice {
 			case "1":
-				newPersonageCreated = Combatant(name: choosedName)
+				newPersonageCreated = Combatant(name: choosedName, inGame: inGame)
 				validAnswer = true
 			case "2":
-				newPersonageCreated = Magus(name: choosedName)
+				newPersonageCreated = Magus(name: choosedName, inGame: inGame)
 				validAnswer = true
 			case "3":
-				newPersonageCreated = Colossus(name: choosedName)
+				newPersonageCreated = Colossus(name: choosedName, inGame: inGame)
 				validAnswer = true
 			case "4":
-				newPersonageCreated = Dwarf(name: choosedName)
+				newPersonageCreated = Dwarf(name: choosedName, inGame: inGame)
 				validAnswer = true
 			default:
 				print("I did not understand !")

@@ -13,7 +13,7 @@ import Foundation
 //======================
 
 //the Weapon class define a kind and the damage of weapon
-struct Weapon {
+class Weapon {
 
 	//======================
 	// MARK: - Properties
@@ -50,6 +50,7 @@ struct WeaponFactory {
 	static let sword = Weapon(kind: "sword", attackPoints: 100, action: .attack)
 	static let twoHandAx = Weapon(kind: "twoHandAx", attackPoints: 200, action: .attack)
 	static let magic = Weapon(kind: "magic", attackPoints: 50, action: .heal)
+	static let superMagic = Weapon(kind: "Super Magic", attackPoints: 100, action: .heal)
 
 	// création of an array of weaponFactory for random choose in the box
 	static let list = [WeaponFactory.dagger, WeaponFactory.sword, WeaponFactory.twoHandAx, WeaponFactory.magic]

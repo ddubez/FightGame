@@ -10,9 +10,10 @@ import Foundation
 
 // creation of class Combattant, which is a subclass of personage with override property depending on his Kind
 class Combatant: Personage {
-	override init(name: String, kind: PersonageKind, weapon: Weapon) {
-		super.init(name: name, kind: .combatant, weapon: WeaponFactory.sword)
+	override init(name: String, kind: PersonageKind, weapon: Weapon, inGame: Game) {
+		super.init(name: name, kind: .combatant, weapon: WeaponFactory.sword, inGame: inGame)
 		lifePoints = 100
+		superPower = SuperPower(kind: "🐯 attack of tiger Fighter", attackPoints: 100, action: .attack, damagePoints: 50)
 	}
 	static let description = "🤺 A combatant (good warrior)"
 }

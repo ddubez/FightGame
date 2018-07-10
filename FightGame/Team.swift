@@ -47,7 +47,7 @@ struct Team {
 
 	private func chooseAPersonage() -> Personage {
 		var personageChoised: Personage?
-		var validAnswer = false
+		var validAnswer = true
 		repeat {
 			var numberOfPossiblesChoices = 0
 			var indexOfPossiblesChoices = [Int]()
@@ -69,9 +69,10 @@ struct Team {
 					validAnswer = true
 				default:
 					print("I did not understand !⁉️\n")
+					validAnswer = false
 				}
 			}
-		} while validAnswer == false
+		} while !validAnswer
 
 		return personageChoised!
 	}

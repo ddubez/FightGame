@@ -21,10 +21,12 @@ var game: Game
 // function that create a new team
 func createNewTeam(number: Int) -> Team {
 	var playerNameChoised = ""
-	print("What's the name of the team number \(number) player ?")
-	if let choice = readLine() {
+	repeat {
+		print("What's the name of the team number \(number) player ?")
+		if let choice = readLine() {
 		playerNameChoised = choice
-	}
+		}
+	} while playerNameChoised.isEmpty
 	let team = Team(number: number, personages: [Personage](), playerName: playerNameChoised)
 	return team
 }
@@ -37,7 +39,7 @@ func createNewPersonage(number: Int, inGame: Game) -> Personage {
 
 	// loop that make a choice of personage and control if the choice is correct
 	// create a new personage with the name choosed
-	var validAnswer = false
+	var validAnswer = true
 	repeat {
 		print("""
 			What kind is it ?
@@ -63,9 +65,10 @@ func createNewPersonage(number: Int, inGame: Game) -> Personage {
 				validAnswer = true
 			default:
 				print("I did not understand !⁉️\n")
+				validAnswer = false
 			}
 		}
-	} while validAnswer == false
+	} while !validAnswer
 	return newPersonageCreated
 }
 

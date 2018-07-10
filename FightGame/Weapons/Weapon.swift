@@ -46,11 +46,11 @@ class Weapon {
 //======================
 
 struct WeaponFactory {
-	static let dagger = Weapon(kind: "dagger", attackPoints: 50, action: .attack)
-	static let sword = Weapon(kind: "sword", attackPoints: 100, action: .attack)
-	static let twoHandAx = Weapon(kind: "twoHandAx", attackPoints: 200, action: .attack)
-	static let magic = Weapon(kind: "magic", attackPoints: 50, action: .heal)
-	static let superMagic = Weapon(kind: "Super Magic", attackPoints: 100, action: .heal)
+	static let dagger = Weapon(kind: "dagger", attackPoints: 5, action: .attack)
+	static let sword = Weapon(kind: "sword", attackPoints: 10, action: .attack)
+	static let twoHandAx = Weapon(kind: "twoHandAx", attackPoints: 20, action: .attack)
+	static let magic = Weapon(kind: "magic", attackPoints: 5, action: .heal)
+	static let superMagic = Weapon(kind: "Super Magic", attackPoints: 10, action: .heal)
 
 	// création of an array of weaponFactory for random choose in the box
 	static let list = [WeaponFactory.dagger, WeaponFactory.sword, WeaponFactory.twoHandAx, WeaponFactory.magic]

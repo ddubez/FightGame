@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F2BC96020EB796D000938C8 /* PersonageCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BC95F20EB796D000938C8 /* PersonageCase.swift */; };
 		4F44B09E20D95F7E0073F641 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B09D20D95F7E0073F641 /* main.swift */; };
 		4F44B0A620DA50520073F641 /* Personage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0A520DA50520073F641 /* Personage.swift */; };
 		4F44B0A820DA7D440073F641 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44B0A720DA7D440073F641 /* Team.swift */; };
@@ -33,7 +32,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4F2BC95F20EB796D000938C8 /* PersonageCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonageCase.swift; sourceTree = "<group>"; };
 		4F44B09A20D95F7E0073F641 /* FightGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FightGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F44B09D20D95F7E0073F641 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4F44B0A520DA50520073F641 /* Personage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personage.swift; sourceTree = "<group>"; };
@@ -44,7 +42,6 @@
 		4F44B0AF20DA91240073F641 /* Magus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magus.swift; sourceTree = "<group>"; };
 		4F44B0B120DA930D0073F641 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		4F44B0B720DD24E20073F641 /* FightGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FightGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F44B0BB20DD24E20073F641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F4B15AD20E560250046C702 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4FCB859B20F12E120041B984 /* SuperPower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperPower.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				4F44B09C20D95F7E0073F641 /* FightGame */,
-				4F44B0B820DD24E20073F641 /* FightGameTests */,
 				4F44B09B20D95F7E0073F641 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,15 +91,6 @@
 				4F44B0A720DA7D440073F641 /* Team.swift */,
 			);
 			path = FightGame;
-			sourceTree = "<group>";
-		};
-		4F44B0B820DD24E20073F641 /* FightGameTests */ = {
-			isa = PBXGroup;
-			children = (
-				4F44B0BB20DD24E20073F641 /* Info.plist */,
-				4F2BC95F20EB796D000938C8 /* PersonageCase.swift */,
-			);
-			path = FightGameTests;
 			sourceTree = "<group>";
 		};
 		4F4B15AF20E665AD0046C702 /* Personages */ = {
@@ -249,7 +236,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F2BC96020EB796D000938C8 /* PersonageCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

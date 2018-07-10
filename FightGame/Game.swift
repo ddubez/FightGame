@@ -64,6 +64,8 @@ class Game {
 		for personage in team2.personages {
 			list.append(personage.name)
 		}
+		list.append(team1.playerName)
+		list.append(team2.playerName)
 		return list
 	}
 

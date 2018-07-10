@@ -8,6 +8,7 @@
 
 import Foundation
 
+// creation of class Personage. it's define the caracteristics of a personage in the game
 class Personage {
 	//======================
 	// MARK: - Properties

@@ -71,9 +71,10 @@ class Game {
 	// MARK: - Methods
 	//======================
 
-	// add a turn at the number of turn
+	// add a turn at the number of turn and increase all the superPower
 	func endTurn() {
 		numberOfTurn += 1
+		increaseAllSuperPower()
 	}
 
 	// function for choose a name and control if the name of the personage doesn't already exist
@@ -91,5 +92,15 @@ class Game {
 			}
 		} while validAnswer == false
 		return validName
+	}
+
+	// function that increase all super power of a game
+	private func increaseAllSuperPower() {
+		for personage in team1.personages where !personage.isdead {
+			personage.addExperience()
+			}
+		for personage in team2.personages where !personage.isdead {
+			personage.addExperience()
+		}
 	}
 }

@@ -68,7 +68,7 @@ struct Team {
 					personageChoised = personages[indexOfPossiblesChoices[2]]
 					validAnswer = true
 				default:
-					print("I did not understand !")
+					print("I did not understand !⁉️\n")
 				}
 			}
 		} while validAnswer == false
@@ -80,19 +80,27 @@ struct Team {
 	func performAnActionOn(_ otherTeam: Team ) {
 
 		// selection of the fighter for team
-		print("\(playerName), choose the personage who will perform an action :")
+		print("\(playerName), choose the personage who will perform an action :\n")
 		let fighter1 = chooseAPersonage()
 
+		// find or not a new weapon
 		let newWeaponFound = isBoxAppear()
 		if newWeaponFound != nil {
 			fighter1.changeWeapon(with: newWeaponFound!)
+		}
+
+		// choose or not to use his superPower
+		if fighter1.superPower != nil {
+			fighter1.chooseSuperPower()
+		} else {
+			fighter1.usingWeapon = fighter1.weapon
 		}
 
 		if fighter1.personageKind == .magus {
 			// selection and heal personage in team A
 			print("And now, choose the personage that you want to heal :")
 			let fighter2 = chooseAPersonage()
-			fighter2.isHealedBy(fighter1)
+			fighter2.isHealedFor(fighter1.usingWeapon!.attackPoints)
 			print("""
 				💉      💊
 				Good job, \(fighter2.name) has now \(fighter2.lifePoints) lifepoints left !
@@ -100,12 +108,13 @@ struct Team {
 				""")
 		} else {
 			// selectection and attack pessonage in team B
-			print("And now, choose the personage that you want to attack :")
+			print("And now, choose the personage that you want to attack :\n")
 			let fighter2 = otherTeam.chooseAPersonage()
-			fighter2.isAttackedBy(fighter1)
+			fighter2.isDamageFor(fighter1.usingWeapon!.attackPoints)
 			print("""
-				⚔️      🛡
-				\(fighter1.name) is attacking \(fighter2.name) !!
+
+				⚔️🛡   \(fighter1.name) is attacking \(fighter2.name) !!    🛡⚔️
+
 				""")
 
 			if fighter2.isdead {
@@ -126,14 +135,12 @@ struct Team {
 		var weaponInBox: Weapon? = nil
 		if arc4random_uniform(10) > 5 {
 			print("""
-			🎁
-			you are luky, a box appears in front of you !
-			🎁
+			🎁  you are luky, a box appears in front of you ! 🎁
 			""")
 			let randomIndex = Int(arc4random_uniform(UInt32(WeaponFactory.list.count)))
 			weaponInBox = WeaponFactory.list[randomIndex]
 			print("""
-				You found a \(weaponInBox!.kind) !!
+				And you found in a \(weaponInBox!.kind) !!\n
 				""")
 		}
 		return weaponInBox

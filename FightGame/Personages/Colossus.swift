@@ -13,7 +13,7 @@ class Colossus: Personage {
 	override init(name: String, kind: PersonageKind, weapon: Weapon, inGame: Game) {
 		super.init(name: name, kind: .colossus, weapon: WeaponFactory.dagger, inGame: inGame)
 		lifePoints = 200
-		superPower = SuperPower(kind: "🦍 tripe hit", attackPoints: 50, action: .attack, damagePoints: 100)
+		superPower = SuperPower(kind: "!🦍 tripe hit!", attackPoints: 50, action: .attack, damagePoints: 100)
 	}
 	static let description = "🏋️‍♀️ A colossus (very tough, but he will not hurt very much !)"
 }

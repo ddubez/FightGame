@@ -30,6 +30,9 @@ class Personage {
 	// creation of weapon property : a Weapon structure (the weapon of a personage)
 	var weapon: Weapon
 
+	// creation of usingWeapon property : the weapon or the superPower that personage is using to perform an action
+	var usingWeapon: Weapon?
+
 	// creation of inGame : the game where is the personage
 	var inGame: Game
 
@@ -71,13 +74,13 @@ class Personage {
 	//======================
 
 	// function that remove lifepoints during an attack
-	func isAttackedBy(_ personage: Personage) {
-		lifePoints -= personage.weapon.attackPoints
+	func isDamageFor(_ points: Int) {
+		lifePoints -= points
 	}
 
 	//function that add lifepoints during a magus care
-	func isHealedBy(_ personage: Personage) {
-		lifePoints += personage.weapon.attackPoints
+	func isHealedFor(_ points: Int) {
+		lifePoints += points
 	}
 
 	// function that make a description of a personage
@@ -92,7 +95,7 @@ class Personage {
 		+ " he's got a \(weapon.kind) with \(weapon.attackPoints) attack points " + powerDescription
 	}
 
-	// function taht make a personge change or not his weapon
+	// function that make a personge change or not his weapon
 	func changeWeapon(with newWeapon: Weapon) {
 		switch sort {
 		case .fighter where newWeapon.action == .heal:
@@ -101,8 +104,7 @@ class Personage {
 			print("Sorry, but a \(personageKind) can't have a attack weapon ")
 		default:
 			print("""
-				Now, \(name) has a \(weapon.kind) for weapon
-				witch have \(weapon.attackPoints) attack point.
+				Now, \(name) has a \(weapon.kind) for weapon witch have \(weapon.attackPoints) attack point.
 				Do you want to change it with \(newWeapon.kind) witch have \(newWeapon.attackPoints) attack points ?
 				(y / n)
 				""")
@@ -118,10 +120,47 @@ class Personage {
 						print("ok")
 						validAnswer = true
 					default:
-						print("I did not understand !")
+						print("I did not understand !⁉️\n")
 					}
 				}
 			} while validAnswer == false
 		}
+	}
+
+	// function that make a personage choose or not his superPower
+	func chooseSuperPower() {
+		print("""
+			You've got \(superPower!.kind) as a super power, with \(superPower!.attackPoints) attack points
+			(but will cause a damage of \(superPower!.damagePoints) life points to you)
+			Do you want to use your super power ?
+			(y / n)
+			""")
+		var validAnswer = false
+		repeat {
+			if let choice = readLine() {
+				switch choice {
+				case "y":
+					usingWeapon = superPower
+					print("ok, \(name) will use his super power\n")
+					isDamageFor(superPower!.damagePoints)
+					validAnswer = true
+					superPower = nil
+				case "n":
+					usingWeapon = weapon
+					print("ok")
+					validAnswer = true
+				default:
+					print("I did not understand !⁉️\n")
+				}
+			}
+		} while validAnswer == false
+	}
+
+	// func that add experience (superpower and life point) to a personage in function of the number of turn in a game
+	func addExperience() {
+		if let power = superPower {
+			power.increasePower(for: game)
+			lifePoints += 10
+			}
 	}
 }

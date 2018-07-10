@@ -62,7 +62,7 @@ func createNewPersonage(number: Int, inGame: Game) -> Personage {
 				newPersonageCreated = Dwarf(name: choosedName, inGame: inGame)
 				validAnswer = true
 			default:
-				print("I did not understand !")
+				print("I did not understand !⁉️\n")
 			}
 		}
 	} while validAnswer == false
@@ -96,7 +96,7 @@ for personnageNumber in 1...3 {
 }
 
 // the 2 teams are completed
-print("Thank you both, the teams are now ready !!")
+print("Thank you both, the teams are now ready !\n")
 
 // loop that make fight until the game is over
 while !game.isOver {
